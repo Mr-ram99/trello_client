@@ -19,7 +19,24 @@ export default function RootLayout({
     <html lang="en">
       <ConfigProvider
         theme={{
-          components: {},
+          components: {
+            Layout: { headerBg: "#F7F7F7", siderBg: "#FFFFFF" },
+            Menu: {
+              itemSelectedBg: "#DDDDDD",
+              itemSelectedColor: "#797979",
+              itemHoverBg: "#DDDDDD",
+              itemColor: "#797979",
+            },
+            Button: {
+              defaultBorderColor: "transparent",
+              defaultHoverBorderColor: "transparent",
+              defaultHoverBg: "#DDDDDD",
+              defaultBg: "#DDDDDD",
+              defaultColor: "#797979",
+              defaultHoverColor: "#000000",
+              defaultActiveBg: "#DDDDDD",
+            },
+          },
           token: {},
         }}
       >
