@@ -1,19 +1,28 @@
+"use client";
+
 import React from "react";
-import { Button, Image, Layout, Menu, MenuProps } from "antd";
+import { Button, Flex, Image, Input, Layout, Menu, MenuProps } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import classNames from "classnames";
 import {
   BellOutlined,
+  CalendarOutlined,
   DoubleRightOutlined,
+  FilterOutlined,
   HomeOutlined,
   LineChartOutlined,
   PlusCircleFilled,
   ProjectOutlined,
+  QuestionCircleOutlined,
+  SearchOutlined,
   SettingOutlined,
+  ShareAltOutlined,
+  StarOutlined,
   SunOutlined,
   TeamOutlined,
 } from "@ant-design/icons";
+import CustomCard from "../components/CustomCard";
 
 import styles from "./index.module.scss";
 import baseStyles from "@/app/assets/baseStyles.module.scss";
@@ -87,8 +96,57 @@ export default function Dashboard() {
       <Layout>
         <Header className={styles.headerStyle}>
           <h2>Good Morning, Joe!</h2>
+          <p>
+            Help & feedback <QuestionCircleOutlined />
+          </p>
         </Header>
-        <Content className={styles.contentStyle}>Content</Content>
+        <Content className={styles.contentStyle}>
+          <Flex justify="space-between" align="center" gap={8}>
+            <CustomCard
+              imageSrc="/assets/illustrator-1.png"
+              alt="illustrator-1"
+              title="Introducing tags"
+              content="Easily categorize and find your notes by adding tags. Keep your workspace clutter-free and efficient."
+            />
+            <CustomCard
+              imageSrc="/assets/illustrator-2.png"
+              alt="illustrator-2"
+              title="Share Notes Instantly"
+              content="Effortlessly share your notes with others via email or link. Enhance collaboration with quick sharing options."
+            />
+            <CustomCard
+              imageSrc="/assets/illustrator-3.png"
+              alt="illustrator-3"
+              title="Access Anywhere"
+              content="Sync your notes across all devices. Stay productive whether you're on your phone, tablet, or computer."
+            />
+          </Flex>
+          <Flex justify="space-between" align="center">
+            <Input
+              placeholder="Search"
+              style={{ width: 200 }}
+              suffix={<SearchOutlined />}
+              size="large"
+            />
+            <div>
+              <Button className="bg-transparent" size="large">
+                Calender View <CalendarOutlined />
+              </Button>
+              <Button className="bg-transparent" size="large">
+                Automation <StarOutlined />
+              </Button>
+              <Button className="bg-transparent" size="large">
+                Filter <FilterOutlined />
+              </Button>
+              <Button className="bg-transparent" size="large">
+                Share <ShareAltOutlined />
+              </Button>
+              <Button type="primary" className={baseStyles.button} size="large">
+                Create new <PlusCircleFilled />
+              </Button>
+            </div>
+          </Flex>
+        </Content>
       </Layout>
     </Layout>
   );
