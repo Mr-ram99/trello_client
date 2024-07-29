@@ -1,0 +1,20 @@
+.container {
+    min-height: 50vh;
+}
+
+.title {
+    font-size: 20px;
+    color: #555555;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, #3A3A3A, #202020);
+    color: #E3E1E1;
+}

@@ -1,0 +1,28 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: #F9F9F9;
+    padding: 13px 14px;
+    gap: 12px;
+}
+
+.title {
+    color: #606060;
+    font-size: 16px;
+}
+
+.description {
+    color: #797979;
+    font-size: 14px;
+}
+
+.priority {
+    font-size: 12px;
+}
+
+.deadline {
+    display: flex;
+    gap: 10px;
+}

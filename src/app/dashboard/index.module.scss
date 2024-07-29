@@ -32,6 +32,7 @@
     flex-direction: column;
     margin-right: 16px;
     gap: 8px;
+    box-sizing: border-box;
 }
 
 .profileImg {
@@ -40,4 +41,9 @@
 
 .menuStyle {
     font-size: 18px;
+}
+
+.board {
+    background-color: #FFFFFF;
+    padding: 16px;
 }

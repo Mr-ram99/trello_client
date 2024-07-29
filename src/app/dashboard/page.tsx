@@ -23,6 +23,7 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 import CustomCard from "../components/CustomCard";
+import Board from "../components/Board";
 
 import styles from "./index.module.scss";
 import baseStyles from "@/app/assets/baseStyles.module.scss";
@@ -146,6 +147,9 @@ export default function Dashboard() {
               </Button>
             </div>
           </Flex>
+          <div className={styles.board}>
+            <Board />
+          </div>
         </Content>
       </Layout>
     </Layout>
