@@ -1,3 +1,5 @@
+"use client";
+
 import { DatePicker, Flex, Input, Select } from "antd";
 import startCase from "lodash/startCase";
 

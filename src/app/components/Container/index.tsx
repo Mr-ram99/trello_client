@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button, Flex } from "antd";
 import { AlignLeftOutlined, PlusCircleFilled } from "@ant-design/icons";
