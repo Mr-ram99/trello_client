@@ -303,7 +303,7 @@ export default function Board() {
         onDragEnd={handleDragEnd}
       >
         {containers.map((container) => (
-          <Col span={6}>
+          <Col span={6} key={container.id}>
             <Container
               id={container.id}
               title={container.title}
