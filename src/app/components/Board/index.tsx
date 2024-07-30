@@ -329,12 +329,6 @@ export default function Board() {
             </Container>
           </Col>
         ))}
-        {/* <DragOverlay adjustScale={false}>
-          Drag Overlay For item Item
-          {activeId && activeId.toString().includes("item") && (
-            <Items id={activeId} title={findItemTitle(activeId)} />
-          )}
-        </DragOverlay> */}
       </DndContext>
     </Row>
   );

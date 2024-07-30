@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Button, Flex, Image, Input, Layout, Menu, MenuProps } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
@@ -24,11 +24,15 @@ import {
 } from "@ant-design/icons";
 import CustomCard from "../components/CustomCard";
 import Board from "../components/Board";
+import Link from "next/link";
+import SidePanel from "../components/SidePanel";
 
 import styles from "./index.module.scss";
 import baseStyles from "@/app/assets/baseStyles.module.scss";
 
 export default function Dashboard() {
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+
   const items: MenuProps["items"] = [
     {
       key: "home",
@@ -76,7 +80,7 @@ export default function Dashboard() {
             <DoubleRightOutlined className={baseStyles.icon} />
           </div>
           <Button type="default" size="large">
-            Logout
+            <Link href="/login">Logout</Link>
           </Button>
         </div>
         <Menu
@@ -90,6 +94,7 @@ export default function Dashboard() {
           type="primary"
           className={classNames(baseStyles.button, "w-full")}
           size="large"
+          onClick={() => setIsSidePanelOpen(true)}
         >
           Create new Task <PlusCircleFilled />
         </Button>
@@ -142,7 +147,12 @@ export default function Dashboard() {
               <Button className="bg-transparent" size="large">
                 Share <ShareAltOutlined />
               </Button>
-              <Button type="primary" className={baseStyles.button} size="large">
+              <Button
+                type="primary"
+                className={baseStyles.button}
+                size="large"
+                onClick={() => setIsSidePanelOpen(true)}
+              >
                 Create new <PlusCircleFilled />
               </Button>
             </div>
@@ -150,6 +160,10 @@ export default function Dashboard() {
           <div className={styles.board}>
             <Board />
           </div>
+          <SidePanel
+            isOpen={isSidePanelOpen}
+            setClose={() => setIsSidePanelOpen(false)}
+          />
         </Content>
       </Layout>
     </Layout>
