@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button, Flex, Input } from "antd";
 import {
@@ -24,6 +25,16 @@ interface SidePanelProps {
 }
 
 export default function SidePanel({ isOpen, setClose }: SidePanelProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   const statusOption = [
     { value: "pending", label: "Pending" },
     { value: "progress", label: "Progress" },
