@@ -22,9 +22,14 @@ import baseStyles from "@/app/assets/baseStyles.module.scss";
 interface SidePanelProps {
   isOpen: boolean;
   setClose: () => void;
+  defaultStatus?: "pending" | "progress" | "review" | "finished" | null;
 }
 
-export default function SidePanel({ isOpen, setClose }: SidePanelProps) {
+export default function SidePanel({
+  isOpen,
+  setClose,
+  defaultStatus,
+}: SidePanelProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -75,7 +80,12 @@ export default function SidePanel({ isOpen, setClose }: SidePanelProps) {
           className={styles.fields}
           vertical
         >
-          <FormField Icon={SunOutlined} name="status" options={statusOption} />
+          <FormField
+            Icon={SunOutlined}
+            name="status"
+            options={statusOption}
+            defaultStatus={defaultStatus}
+          />
           <FormField
             Icon={WarningOutlined}
             name="priority"

@@ -23,7 +23,7 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 import CustomCard from "../components/CustomCard";
-import Board from "../components/Board";
+import DragDropWrapper from "../components/DragDropWrapper";
 import Link from "next/link";
 import SidePanel from "../components/SidePanel";
 
@@ -32,6 +32,9 @@ import baseStyles from "@/app/assets/baseStyles.module.scss";
 
 export default function Dashboard() {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+  const [defaultNewTaskStatus, setDefaultNewTaskStatus] = useState<
+    "pending" | "progress" | "review" | "finished" | null
+  >(null);
 
   const items: MenuProps["items"] = [
     {
@@ -94,7 +97,10 @@ export default function Dashboard() {
           type="primary"
           className={classNames(baseStyles.button, "w-full")}
           size="large"
-          onClick={() => setIsSidePanelOpen(true)}
+          onClick={() => {
+            setDefaultNewTaskStatus(null);
+            setIsSidePanelOpen(true);
+          }}
         >
           Create new Task <PlusCircleFilled />
         </Button>
@@ -151,18 +157,25 @@ export default function Dashboard() {
                 type="primary"
                 className={baseStyles.button}
                 size="large"
-                onClick={() => setIsSidePanelOpen(true)}
+                onClick={() => {
+                  setDefaultNewTaskStatus(null);
+                  setIsSidePanelOpen(true);
+                }}
               >
                 Create new <PlusCircleFilled />
               </Button>
             </div>
           </Flex>
           <div className={styles.board}>
-            <Board />
+            <DragDropWrapper
+              setDefaultNewTaskStatus={setDefaultNewTaskStatus}
+              setIsSidePanelOpen={setIsSidePanelOpen}
+            />
           </div>
           <SidePanel
             isOpen={isSidePanelOpen}
             setClose={() => setIsSidePanelOpen(false)}
+            defaultStatus={defaultNewTaskStatus}
           />
         </Content>
       </Layout>

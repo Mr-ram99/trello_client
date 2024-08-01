@@ -1,4 +1,4 @@
-import { DNDType } from "../components/Board";
+import { DNDType } from "../components/DragDropWrapper";
 
 export const container: DNDType[] = [
   {

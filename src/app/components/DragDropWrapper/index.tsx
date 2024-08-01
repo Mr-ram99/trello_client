@@ -22,8 +22,9 @@ import {
 } from "@dnd-kit/sortable";
 import Items from "../Item";
 import { container } from "@/app/assets/constants";
-import Container from "../Container";
+import TaskColumnContainer from "../TaskColumnContainer";
 import { Col, Row } from "antd";
+import { Dispatch, SetStateAction } from "react";
 
 import styles from "./index.module.scss";
 
@@ -40,7 +41,17 @@ export type DNDType = {
   }[];
 };
 
-export default function Board() {
+interface DragDropWrapperPropType {
+  setDefaultNewTaskStatus: Dispatch<
+    SetStateAction<"pending" | "progress" | "review" | "finished" | null>
+  >;
+  setIsSidePanelOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function DragDropWrapper({
+  setDefaultNewTaskStatus,
+  setIsSidePanelOpen,
+}: DragDropWrapperPropType) {
   const [containers, setContainers] = useState<DNDType[]>(container);
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const [currentContainerId, setCurrentContainerId] =
@@ -304,7 +315,7 @@ export default function Board() {
       >
         {containers.map((container) => (
           <Col span={6} key={container.id}>
-            <Container
+            <TaskColumnContainer
               id={container.id}
               title={container.title}
               key={container.id}
@@ -312,6 +323,8 @@ export default function Board() {
                 setShowAddItemModal(true);
                 setCurrentContainerId(container.id);
               }}
+              setDefaultNewTaskStatus={setDefaultNewTaskStatus}
+              setIsSidePanelOpen={setIsSidePanelOpen}
             >
               <SortableContext items={container.items.map((i) => i.id)}>
                 <div className="flex items-start flex-col gap-y-4">
@@ -328,7 +341,7 @@ export default function Board() {
                   ))}
                 </div>
               </SortableContext>
-            </Container>
+            </TaskColumnContainer>
           </Col>
         ))}
       </DndContext>
