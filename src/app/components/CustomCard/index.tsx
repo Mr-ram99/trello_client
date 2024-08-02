@@ -24,8 +24,9 @@ export default function CustomCard({
         alt={alt || "illustrator-1"}
         width={100}
         height={100}
+        preview={false}
       />
-      <div style={{ width: "200px" }}>
+      <div style={{ maxWidth: "200px" }}>
         <h3 className={styles.title} style={{ color: "#2F2E41" }}>
           {title}
         </h3>

@@ -13,9 +13,10 @@
     font-family: Barlow, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: space-between;
-    align-items: start;
-    margin-right: 20px;
+    align-items: flex-start;
+    margin: 10px;
     margin-bottom: 16px;
+    height: max-content;
 
     h2 {
         font-size: 48px;
@@ -24,6 +25,7 @@
 
     p {
         color: var(--primary-text-color);
+        margin: 0;
     }
 }
 
@@ -46,4 +48,16 @@
 .board {
     background-color: #FFFFFF;
     padding: 16px;
+}
+
+@media screen and (max-width: 764px) {
+    .siderStyle {
+        display: none;
+    }
+
+    .headerStyle {
+        h2 {
+            font-size: 24px;
+        }
+    }
 }

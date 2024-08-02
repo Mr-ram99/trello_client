@@ -314,7 +314,7 @@ export default function DragDropWrapper({
         onDragEnd={handleDragEnd}
       >
         {containers.map((container) => (
-          <Col span={6} key={container.id}>
+          <Col xs={24} sm={24} md={12} lg={6} xl={6} key={container.id}>
             <TaskColumnContainer
               id={container.id}
               title={container.title}

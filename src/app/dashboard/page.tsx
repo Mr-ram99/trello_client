@@ -113,7 +113,7 @@ export default function Dashboard() {
           </p>
         </Header>
         <Content className={styles.contentStyle}>
-          <Flex justify="space-between" align="center" gap={8}>
+          <Flex justify="space-between" align="center" gap={8} wrap>
             <CustomCard
               imageSrc="/assets/illustrator-1.png"
               alt="illustrator-1"
@@ -133,7 +133,7 @@ export default function Dashboard() {
               content="Sync your notes across all devices. Stay productive whether you're on your phone, tablet, or computer."
             />
           </Flex>
-          <Flex justify="space-between" align="center">
+          <Flex justify="space-between" align="center" wrap>
             <Input
               placeholder="Search"
               style={{ width: 200 }}
